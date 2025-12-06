@@ -1,9 +1,18 @@
+import 'package:bkash_app_ui_v2/logic/applogic/feature_grid_provider.dart';
 import 'package:bkash_app_ui_v2/ui/screens/splashscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => FeatureGridProvider()),
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

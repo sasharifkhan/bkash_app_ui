@@ -29,7 +29,7 @@ class _SplashscreenState extends State<Splashscreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Appconstants.comcolor,
+      backgroundColor: comcolor,
       body: Center(
         child: Image(
           image: AssetImage("assets/icons/bkash.png"),
