@@ -12,14 +12,105 @@ class Homescreen extends StatefulWidget {
 }
 
 class _HomescreenState extends State<Homescreen> {
+  final GlobalKey<ScaffoldState> _drawerkey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _drawerkey,
       backgroundColor: comcolor,
+      drawer: Drawer(
+        width: double.infinity,
+        child: SafeArea(
+          child: Container(
+            color: Colors.white,
+            child: Column(
+              children: [
+                AppBar(
+                  backgroundColor: comcolor,
+                  leading: IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: Icon(Icons.arrow_back, color: Colors.white),
+                  ),
+                  title: Text(
+                    "My Profile",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  actions: [
+                    IconButton(
+                      onPressed: () {},
+                      icon: Image(
+                        image: AssetImage("assets/icons/bkash.png"),
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+                ListTile(
+                  title: Text("S Khan"),
+                  subtitle: Text("+8801xxxxxxxxx"),
+                  leading: CircleAvatar(
+                    backgroundColor: Color(0xFFDE96A0),
+                    child: Icon(Icons.person, color: Colors.white),
+                  ),
+                  trailing: Container(
+                    height: 40.h,
+                    width: 60.w,
+                    decoration: BoxDecoration(
+                      // color: Colors.red,
+                      border: Border.all(color: comcolor),
+                      borderRadius: BorderRadius.circular(8.r),
+                    ),
+                    child: Center(
+                      child: Text(
+                        "Edit",
+                        style: TextStyle(color: comcolor, fontSize: 14.sp),
+                      ),
+                    ),
+                  ),
+                ),
+                Divider(height: 10.h, color: Color(0xFFF2F2F2), thickness: 5.h),
+                Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      left: 20.w,
+                      right: 20.w,
+                      top: 15.h,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Set Your Transection Features",
+                          style: TextStyle(fontSize: 12.sp),
+                        ),
+                        SizedBox(
+                          height: 250.h,
+                          child: ListView.builder(
+                            padding: EdgeInsets.zero,
+                            itemCount: 10,
+                            itemBuilder: (context, index) => ListTile(
+                              contentPadding: EdgeInsets.all(0),
+                              onTap: () {},
+                              leading: Icon(Icons.electric_bolt_sharp),
+                              title: Text("One-Tap Transection"),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
       body: Column(
         children: [
           SizedBox(
-            height: 150.h,
+            height: 120.dg,
             child: Padding(
               padding: EdgeInsets.all(10.dg),
               child: Row(
@@ -28,7 +119,9 @@ class _HomescreenState extends State<Homescreen> {
                   Row(
                     children: [
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          _drawerkey.currentState!.openDrawer();
+                        },
                         child: CircleAvatar(
                           radius: 22.dg,
                           backgroundColor: Colors.white,
