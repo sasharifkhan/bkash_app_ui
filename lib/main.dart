@@ -1,4 +1,5 @@
 import 'package:bkash_app_ui_v2/logic/applogic/feature_grid_provider.dart';
+import 'package:bkash_app_ui_v2/logic/applogic/myprofilelist.dart';
 import 'package:bkash_app_ui_v2/ui/screens/splashscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,6 +10,7 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => FeatureGridProvider()),
+        ChangeNotifierProvider(create: (context) => Myprofilelist()),
       ],
       child: MyApp(),
     ),
